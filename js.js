@@ -28,7 +28,7 @@ setTimeout(function(){
 	if (typeof(player0.defam) == undefined){
 		player0.defam = 0;
 	}
-}, 1500)
+}, 500)
 function save(){
 	localStorage.setItem("playerHP", player0.HP);
 	localStorage.setItem("playerHR", player0.handRight);
