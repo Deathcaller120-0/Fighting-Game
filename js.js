@@ -9,26 +9,30 @@ setTimeout(function(){
 	player0.exp = localStorage.getItem("playerXP");
 	player0.lvl = localStorage.getItem("playerLVL");
 	player0.deflvl = localStorage.getItem("playerDef");
-	if (typeof(player0.HP) == undefined || player0.HP == 0){
+	fix();
+}, 500)
+setInterval(fix, 5000);
+function fix(){
+	if (player0.HP == undefined || player0.HP == 0){
 		player0.HP = 10;
 	}
-	if (typeof(player0.handRight) == null){
+	if (player0.handRight == null || player0.handRight == NaN){
 		player0.handRight = "Fist";
 	}
-	if (typeof(player0.handLeft) == null){
+	if (player0.handLeft == null || player0.handLeft == NaN){
 		player0.handLeft = "Fist";
 	}
-	if (typeof(player0.exp) == null || player0.exp == NaN){
+	if (player0.exp == null || player0.exp == NaN){
 		player0.exp = 0;
 	}
-	if (typeof(player0.lvl) == null){
+	if (player0.lvl == null){
 		player0.lvl = 1;
 	}
 	
-	if (typeof(player0.defam) == null){
+	if (player0.defam == null){
 		player0.defam = 0;
 	}
-}, 500)
+}
 function save(){
 	localStorage.setItem("playerHP", player0.HP);
 	localStorage.setItem("playerHR", player0.handRight);
