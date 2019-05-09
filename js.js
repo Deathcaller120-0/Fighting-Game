@@ -267,7 +267,11 @@ function exea(){
 	}
 	dmgabsR = 0;
 	dmgabsL = 0;
-	
+	if (player0.HP <= 0){
+		player0.HP = 0;
+		player0.live = "Dead";
+		stats();
+	}
 }
 
 //Leveling up
