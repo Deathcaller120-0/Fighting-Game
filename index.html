@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Fighting Game</title>
+		<link rel="stylesheet" href="css.css">
+		<script src="js.js"></script>
+	</head>
+	<body>
+		<div class="grid-container">
+			<div>
+				<b>
+				<p class="text">PLAYER STATUS</p>
+				<p class="text" id="player0AD">Alive</p>
+				</b>
+				<p class="text"><span id="player0HP"></span> HP</p>
+				<p class="text">In Left Hand: <span id="player0HL"></span></p>
+				<p class="text">In Right Hand: <span id="player0HR"></span></p>
+				<p class="text"><span id="player0EXP"></span> EXP</p>
+				<p class="text">Level <span id="player0LVL"></span></p>
+				<input type="button" id="AL" value="Fight with Left Hand" class="inbut" onclick="attackL()">
+				<input type="button" id="DL" value="Defend with Left" class="inbut" onclick="defendL()">
+				<input type="button" id="AR" value="Fight with Right Hand" class="inbut" onclick="attackR()">
+				<input type="button" id="DR" value="Defend with Right" class="inbut" onclick="defendR()">
+				<input type="button" class="inbut text" onclick="exe()" id="FS" value="Execute Plan">
+				<p id="crit" class="text"></p>
+			</div>
+			<div>
+				<b>
+				<p class="text">ENEMY STATUS</p>
+				<p class="text" id="player1AD">Loading</p>
+				</b>
+				<p class="text"><span id="player1HP"></span> HP</p>
+				<p class="text">In Left Hand: <span id="player1HL"></span></p>
+				<p class="text">In Right Hand: <span id="player1HR"></span></p>
+				<p class="text">Level <span id="player1LVL"></span></p>
+				<input type="button" value="New Enemy?" class="inbut" onclick="livea()">
+				<p class="text" id="Warn"></p>
+			</div>
+			<div>
+				<p class="text">Weapon Number Values</p>
+				<p class="text">Fist = 0. Does 5 Damage</p>
+				<p class="text">Stick = 1. Does 8 Damage</p>
+				<p class="text">Spear = 2. Does 14 Damage</p>
+				<p class="text">Shield = 3. Does 1 Damage</p>
+				<p class="text">Sword = 4. Does 20 Damage</p>
+			</div>
+			<div>
+				<p class="text">Inventory</p>
+				<p id="item0"></p>
+				<p id="item1"></p>
+				<p id="item2"></p>
+				<p id="item3"></p>
+				<p id="item4"></p>
+			</div>
+		</div>
+	</body>
+</html>
