@@ -57,6 +57,7 @@ function stats(){
 		player0.exp = expgain + exp;
 		setTimeout(live, 5000);
 		lvlup();
+		
 	}
 	document.getElementById('player1HR').innerHTML=player1.hand1;
 	document.getElementById('player1HL').innerHTML=player1.hand0
@@ -229,6 +230,7 @@ function defendR(){
 //Player
 var dmgabsR = 0;
 var dmgabsL = 0;
+var prefight = player0.HP;
 function exe(){
 	document.getElementById('FS').style.display="none";
 	var HPR = Number(player1.HP);
@@ -268,13 +270,20 @@ function exea(){
 	dmgabsR = 0;
 	dmgabsL = 0;
 	if (player0.HP <= 0){
-		player0.HP = 0;
+		player0.HP = prefight;
 		player0.live = "Dead";
+		var expremove = 40;
+		do {
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		
 		stats();
 	}
 }
 
 //Leveling up
+var maxhp = 10;
 function lvlup(){
 	if (Number(player0.lvl) == 1 && player0.exp >= 100){
 		player0.lvl = 2;
@@ -285,6 +294,8 @@ function lvlup(){
 		} while (expremove >= 1)
 		player0.HP++;
 		player0.HP++;
+		maxhp++;
+		maxhp++;
 	}
 	if(player0.lvl == 2 && player0.exp >= 120){
 		player0.lvl++;
@@ -295,6 +306,8 @@ function lvlup(){
 		} while (expremove >= 1)
 		player0.HP++;
 		player0.HP++;
+		maxhp++;
+		maxhp++;
 	}
 	if(player0.lvl == 3 && player0.exp >= 140){
 		player0.lvl++;
@@ -305,6 +318,44 @@ function lvlup(){
 		} while (expremove >= 1)
 		player0.HP++;
 		player0.HP++;
+		maxhp++;
+		maxhp++;
+	}
+	if (player0.lvl == 4 && player0.exp >= 160){
+		player0.lvl++;
+		var expremove = 160;
+		do{
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		player0.HP++;
+		player0.HP++;
+		maxhp++;
+		maxhp++;
+	}
+	if (player0.lvl == 5 && player0.exp >= 180){
+		player0.lvl++;
+		var expremove = 160;
+		do{
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		player0.HP++;
+		player0.HP++;
+		maxhp++;
+		maxhp++;
+	}
+	if (player0.lvl == 6 && player0.exp >= 200){
+		player0.lvl++;
+		var expremove = 160;
+		do{
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		player0.HP++;
+		player0.HP++;
+		maxhp++;
+		maxhp++;
 	}
 }
 
