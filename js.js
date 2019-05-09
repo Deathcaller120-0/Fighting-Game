@@ -1,5 +1,5 @@
 //1st Player or User
-var player0 = {HP:10, handRight:"Fist", handLeft:"Fist", exp:0, lvl:1, deflvl:0, live:"Alive"};
+var player0 = {HP:10, handRight:"Fist", handLeft:"Fist", exp:0, lvl:1, defam:0, live:"Alive"};
 setInterval(stats, 1000);
 setInterval(save, 1000);
 setTimeout(function(){
@@ -9,7 +9,26 @@ setTimeout(function(){
 	player0.exp = localStorage.getItem("playerXP");
 	player0.lvl = localStorage.getItem("playerLVL");
 	player0.deflvl = localStorage.getItem("playerDef");
-}, 500)
+	if (typeof(player0.HP) == undefined){
+		player0.HP = 10;
+	}
+	if (typeof(player0.handRight) == undefined){
+		player0.handRight = "Fist";
+	}
+	if (typeof(player0.handLeft) == undefined){
+		player0.handLeft = "Fist";
+	}
+	if (typeof(player0.exp) == undefined){
+		player0.exp = 0;
+	}
+	if (typeof(player0.lvl) == undefined){
+		player0.lvl = 1;
+	}
+	
+	if (typeof(player0.defam) == undefined){
+		player0.defam = 0;
+	}
+}, 1500)
 function save(){
 	localStorage.setItem("playerHP", player0.HP);
 	localStorage.setItem("playerHR", player0.handRight);
@@ -30,7 +49,7 @@ function stats(){
 	document.getElementById('player1AD').innerHTML=player1.live;
 	if (player1.HP <= 0 && player1.HP !== "Loading, Please Wait"){
 		player1.HP = 10;
-		player0.deflvl++;
+		player0.defam++;
 		player1.live = "Loading, Please Wait";
 		document.getElementById('player1AD').innerHTML = "Dead";
 		var expgain = Number(player1.expdrop);
