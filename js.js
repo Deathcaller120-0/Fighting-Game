@@ -16,20 +16,20 @@ function fix(){
 	if (player0.HP == undefined || player0.HP == 0){
 		player0.HP = 10;
 	}
-	if (player0.handRight == null || player0.handRight == NaN || player.handRight == undefined){
+	if (player0.handRight == null || player0.handRight == NaN || player0.handRight == undefined){
 		player0.handRight = "Fist";
 	}
-	if (player0.handLeft == null || player0.handLeft == NaN){
+	if (player0.handLeft == null || player0.handLeft == NaN || player0.handLeft == undefined){
 		player0.handLeft = "Fist";
 	}
-	if (player0.exp == null || player0.exp == NaN){
+	if (player0.exp == null || player0.exp == NaN || player0.exp == undefined){
 		player0.exp = 0;
 	}
-	if (player0.lvl == null){
+	if (player0.lvl == null || player0.lvl == undefined || player0.lvl == NaN){
 		player0.lvl = 1;
 	}
 	
-	if (player0.defam == null){
+	if (player0.defam == null || player0.defam == undefined || player0.defam == NaN){
 		player0.defam = 0;
 	}
 }
