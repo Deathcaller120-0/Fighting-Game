@@ -6,7 +6,6 @@ setTimeout(function(){
 	player0.HP = localStorage.getItem("playerHP");
 	player0.handRight = localStorage.getItem("playerHR");
 	player0.handLeft = localStorage.getItem("playerHL");
-	player0.exp = localStorage.getItem("playerXP");
 	player0.lvl = localStorage.getItem("playerLVL");
 	player0.deflvl = localStorage.getItem("playerDef");
 	fix();
@@ -22,9 +21,6 @@ function fix(){
 	if (player0.handLeft == null || player0.handLeft == NaN || player0.handLeft == undefined){
 		player0.handLeft = "Fist";
 	}
-	if (player0.exp == null || player0.exp == NaN || player0.exp == undefined){
-		player0.exp = 0;
-	}
 	if (player0.lvl == null || player0.lvl == undefined || player0.lvl == NaN){
 		player0.lvl = 1;
 	}
@@ -37,7 +33,6 @@ function save(){
 	localStorage.setItem("playerHP", player0.HP);
 	localStorage.setItem("playerHR", player0.handRight);
 	localStorage.setItem("playerHL", player0.handLeft);
-	localStorage.setItem("playerXP", player0.exp);
 	localStorage.setItem("playerLVL", player0.lvl);
 	localStorage.setItem("playerDef", player0.deflvl);
 }
