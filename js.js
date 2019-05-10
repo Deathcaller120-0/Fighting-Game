@@ -13,7 +13,6 @@ setTimeout(function(){
 }, 500)
 setInterval(fix, 5000);
 function fix(){
-	debugger; 
 	if (player0.HP == undefined || player0.HP == 0){
 		player0.HP = 10;
 	}
