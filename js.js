@@ -49,7 +49,7 @@ function stats(){
 	if (player1.HP <= 0 && player1.live !== "Loading, Please Wait."){
 		player1.HP = 10;
 		player0.defam++;
-		player1.live = "Loading, Please Wait";
+		player1.live = "Loading, Please Wait.";
 		document.getElementById('player1AD').innerHTML = "Dead";
 		var expgain = Number(player1.expdrop);
 		var exp = Number(player0.exp);
@@ -64,7 +64,7 @@ function stats(){
 	document.getElementById('player1LVL').innerHTML=player1.lvl;
 }
 //'AI' or Enemy
-var player1 = {HP:-10, hand0:"", hand1:"", lvl:1, live:"Loading, Please Wait.", expdrop:0};
+var player1 = {HP:0, hand0:"", hand1:"", lvl:1, live:"Loading, Please Wait.", expdrop:0};
 function livea(){
 	player1.live = "Left Fight";
 }
