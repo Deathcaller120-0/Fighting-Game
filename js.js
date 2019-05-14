@@ -46,7 +46,7 @@ function stats(){
 	document.getElementById('player0LVL').innerHTML=player0.lvl;
 	//'AI'
 	document.getElementById('player1AD').innerHTML=player1.live;
-	if (player1.HP <= 0 && player1.HP !== "Loading, Please Wait"){
+	if (player1.HP <= 0 && player1.live !== "Loading, Please Wait."){
 		player1.HP = 10;
 		player0.defam++;
 		player1.live = "Loading, Please Wait";
