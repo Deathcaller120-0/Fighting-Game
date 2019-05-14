@@ -42,7 +42,7 @@ function stats(){
 	document.getElementById('player0HP').innerHTML=player0.HP;
 	document.getElementById('player0HR').innerHTML=player0.handRight;
 	document.getElementById('player0HL').innerHTML=player0.handLeft;
-	document.getElementById('player0EXP').innerHTML=player0.exp;
+	document.getElementById('player0EXP').innerHTML=player0.exp; 
 	document.getElementById('player0LVL').innerHTML=player0.lvl;
 	//'AI'
 	document.getElementById('player1AD').innerHTML=player1.live;
