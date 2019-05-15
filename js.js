@@ -285,7 +285,6 @@ function exea(){
 //Leveling up
 var maxhp = 10;
 function lvlup(){
-	debugger;
 	if (Number(player0.lvl) == 1 && player0.exp >= 100){
 		player0.lvl = 2;
 		var expremove = 100;
