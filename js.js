@@ -89,7 +89,7 @@ function live(){
 		player1.hand1 = rngH1;
 		player1.live = "Alive";	
 		avar = setInterval(AV, 2000);
-	}
+	} 
 }
 
 //Weapon Verification
