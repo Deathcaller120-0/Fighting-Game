@@ -88,7 +88,7 @@ function live(){
 		player1.hand0 = rngH0;
 		player1.hand1 = rngH1;
 		player1.live = "Alive";	
-		avar = setInterval(AV, 2000);
+		AV();
 	} 
 }
 
@@ -125,7 +125,6 @@ function WV(){
 //'AI'
 var lmema = 0;
 var rmema = 0;
-var avar = setInterval(AV, 2000);
 function AV(){
 	var done = 0;
 	function aa(){
