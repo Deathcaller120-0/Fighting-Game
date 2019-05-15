@@ -264,12 +264,17 @@ function exe(){
 function exea(){
 	document.getElementById('FS').style.display="initial";
 	document.getElementById('crit').innerHTML="";
+	if(player1.HP <= 0){
+		player1.live = "Dead";
+	}
 	if(player1.live !== "Dead"){
+		debugger;
 		var HPRA = Number(player0.HP);
 		var SALA = Math.floor(Math.random() * 3);
 		var SARA = Math.floor(Math.random() * 3);
 		if (SALA >= 1){
 			player0.HP = HPRA - lmema + dmgabsL + dmgabsR;
+			HPRA = Number(player0.HP);
 		}
 		if (SARA >= 1){
 			player0.HP = HPRA - lmema + dmgabsL + dmgabsR;
