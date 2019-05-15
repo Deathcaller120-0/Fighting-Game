@@ -64,7 +64,7 @@ function stats(){
 	document.getElementById('player1LVL').innerHTML=player1.lvl;
 }
 //'AI' or Enemy
-var player1 = {HP:0, hand0:"", hand1:"", lvl:1, live:"Loading, Please Wait.", expdrop:0};
+var player1 = {HP:0, hand0:"", hand1:"", lvl:1, live:"Loading, Please Wait", expdrop:0};
 function livea(){
 	player1.live = "Left Fight";
 }
