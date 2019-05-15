@@ -257,27 +257,28 @@ function exe(){
 function exea(){
 	document.getElementById('FS').style.display="initial";
 	document.getElementById('crit').innerHTML="";
-	var HPRA = Number(player0.HP);
-	var SALA = Math.floor(Math.random() * 3);
-	var SARA = Math.floor(Math.random() * 3);
-	if (SALA >= 1){
-		player0.HP = HPRA - lmema + dmgabsL + dmgabsR;
-	}
-	if (SARA >= 1){
-		player0.HP = HPRA - lmema + dmgabsL + dmgabsR;
-	}
-	dmgabsR = 0;
-	dmgabsL = 0;
-	if (player0.HP <= 0){
-		player0.HP = prefight;
-		player0.live = "Dead";
-		var expremove = 40;
-		do {
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		
-		stats();
+	if(player1.live !== "Dead"){
+		var HPRA = Number(player0.HP);
+		var SALA = Math.floor(Math.random() * 3);
+		var SARA = Math.floor(Math.random() * 3);
+		if (SALA >= 1){
+			player0.HP = HPRA - lmema + dmgabsL + dmgabsR;
+		}
+		if (SARA >= 1){
+			player0.HP = HPRA - lmema + dmgabsL + dmgabsR;
+		}
+		dmgabsR = 0;
+		dmgabsL = 0;
+		if (player0.HP <= 0){
+			player0.HP = prefight;
+			player0.live = "Dead";
+			var expremove = 40;
+			do {
+				player0.exp--;
+				expremove--;
+			} while (expremove >= 1)
+			stats();
+		}
 	}
 }
 
@@ -374,3 +375,14 @@ var weapons = {
 	Shield:1,
 	Sword:20
 };
+//Reset
+function reset(){
+	player0.HP = 10;
+	maxhp = 10;
+	player0.handLeft = "Fist";
+	player0.handRight = "Fist";
+	player0.exp = 0;
+	player0.defam = 0;
+	player0.lvl = 1;
+	live();
+}
