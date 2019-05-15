@@ -171,58 +171,68 @@ function AV(){
 //Attack with Weapon(s)
 //Left
 var SAL = false;
+var SDL = false;
 function attackL(lmem){
 	if (SAL == false){
 		document.getElementById('AL').style.borderColor="#00ff00";
 		document.getElementById('DL').style.borderColor="#ff0000";
 		SAL = true;
+		SDL = false;
 	} else {
 		document.getElementById('AL').style.borderColor="#000000";
 		document.getElementById('DL').style.borderColor="#000000";
 		SAL = false;
+		SDL = false;
 	}
 }
 function defendL(){
-	if(SAL == false){
+	if(SDL == false){
 		document.getElementById('DL').style.borderColor="#00ff00";
 		document.getElementById('AL').style.borderColor="#ff0000";
 		dmgabsL++;
 		dmgabsL++;
-		SAL = true;
+		SAL = false;
+		SDL = true;
 	} else {
 		document.getElementById('DL').style.borderColor="#000000";
 		document.getElementById('AL').style.borderColor="#000000";
 		dmgabsL--;
 		dmgabsL--;
 		SAL = false;
+		SDL = false;
 	}
 }
 //Right
 var SAR = false;
+var SDR = false;
 function attackR(rmem){
-	if (SAR == false){
+	if (SAR == false ){
 		document.getElementById('AR').style.borderColor="#00ff00";
 		document.getElementById('DR').style.borderColor="#ff0000";
 		SAR = true;
+		SDR = false;
 	} else {
 		document.getElementById('AR').style.borderColor="#000000";
 		document.getElementById('DR').style.borderColor="#000000";
 		SAR = false;
+		SDR = false;
 	}
 }
 function defendR(){
-	if (SAR == false){
+	if (SDR == false){
 		document.getElementById('DR').style.borderColor="#00ff00";
 		document.getElementById('AR').style.borderColor="#ff0000";
 		dmgabsR++;
 		dmgabsR++;
-		SAR = true;
+		SAR = false;
+		SDR = true;
 	} else {
 		document.getElementById('DR').style.borderColor="#000000";
 		document.getElementById('AR').style.borderColor="#000000";
 		dmgabsR--;
 		dmgabsR--;
 		SAR = false;
+		SDR = false;
 	}
 }
 //Attack
@@ -234,7 +244,7 @@ function exe(){
 	document.getElementById('FS').style.display="none";
 	var HPR = Number(player1.HP);
 	var crit = Math.floor(Math.random() * 5);
-	if (SAL == true && dmgabsR !== 2){
+	if (SAL == true && dmgabsL !== 2 && SDL == !true){
 		if(crit == 4){
 			player1.HP = HPR - lmem - 10;
 			document.getElementById('crit').innerHTML="Critical Hit!";
@@ -243,7 +253,7 @@ function exe(){
 		}
 		HPR = player1.HP;
 	}
-	if (SAR == true && dmgabsL !== 2){
+	if (SAR == true && dmgabsR !== 2 && SDR == !true){
 		if(crit == 4){
 			player1.HP = HPR - rmem - 10;
 			document.getElementById('crit').innerHTML="Critical Hit!";
