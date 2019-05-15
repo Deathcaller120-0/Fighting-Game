@@ -56,7 +56,7 @@ function stats(){
 		player0.exp = expgain + exp;
 		setTimeout(live, 5000);
 		lvlup();
-		
+		live();
 	}
 	document.getElementById('player1HR').innerHTML=player1.hand1;
 	document.getElementById('player1HL').innerHTML=player1.hand0
@@ -71,27 +71,24 @@ function livea(){
 function live(){
 	if (player1.live !== "Alive"){
 		player1.live = "Loading, Please Wait";
-		aaa();
-		function aaa(){
-			var rngLvl = Math.floor(Math.random() * player0.lvl + 1);
-			var rngHP = Math.floor(Math.random() * player0.HP + 2);
-			var rngH0 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
-			var rngH1 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
-			var rngED = Math.floor(Math.random() * player0.lvl ** 2 + 20);
-			player1.expdrop = rngED;
-			player1.HP = rngHP;
-			player1.lvl = rngLvl;
-			if (rngH0 <= -1){
-				rngH0 = 0;
-			}
-			if (rngH1 <= -1){
-				rngH1 = 0;
-			}
-			player1.hand0 = rngH0;
-			player1.hand1 = rngH1;
-			player1.live = "Alive";	
-			avar = setInterval(AV, 2000);
-			clearTimeout(aaa);
+		var rngLvl = Math.floor(Math.random() * player0.lvl + 1);
+		var rngHP = Math.floor(Math.random() * player0.HP + 2);
+		var rngH0 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
+		var rngH1 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
+		var rngED = Math.floor(Math.random() * player0.lvl ** 2 + 20);
+		player1.expdrop = rngED;
+		player1.HP = rngHP;
+		player1.lvl = rngLvl;
+		if (rngH0 <= -1){
+			rngH0 = 0;
+		}
+		if (rngH1 <= -1){
+			rngH1 = 0;
+		}
+		player1.hand0 = rngH0;
+		player1.hand1 = rngH1;
+		player1.live = "Alive";	
+		avar = setInterval(AV, 2000);
 		}
 	}
 }
@@ -394,4 +391,5 @@ function reset(){
 	player0.defam = 0;
 	player0.lvl = 1;
 	live();
+	save();
 }
