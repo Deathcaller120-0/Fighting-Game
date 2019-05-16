@@ -76,7 +76,8 @@ function live(){
 	if (player1.live !== "Alive"){
 		player1.live = "Loading, Please Wait";
 		var rngLvl = Math.floor(Math.random() * player0.lvl + 1);
-		var rngHP = Math.floor(Math.random() * maxhp + 2);
+		var rngHP = Math.floor(Math.random() * 2);
+		rngHP +=  maxhp;
 		var rngH0 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
 		var rngH1 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
 		var rngED = Math.floor(Math.random() * player0.lvl ** 2 + 20);
