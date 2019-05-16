@@ -257,6 +257,8 @@ function exe(){
 	} else {
 		setTimeout(live, 5000);
 		player1.live = "Dead";
+		document.getElementById('FS').style.display="initial";
+		document.getElementById('crit').innerHTML="";
 	}
 }
 //'AI'
