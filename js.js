@@ -4,6 +4,7 @@ setInterval(stats, 1000);
 setInterval(save, 1000);
 setTimeout(function(){
 	player0.HP = localStorage.getItem("playerHP");
+	maxhp = localStorage.getItem("maxHP");
 	player0.handRight = localStorage.getItem("playerHR");
 	player0.handLeft = localStorage.getItem("playerHL");
 	player0.lvl = localStorage.getItem("playerLVL");
@@ -31,6 +32,7 @@ function fix(){
 }
 function save(){
 	localStorage.setItem("playerHP", player0.HP);
+	localStorage.setItem("maxHP", maxhp);
 	localStorage.setItem("playerHR", player0.handRight);
 	localStorage.setItem("playerHL", player0.handLeft);
 	localStorage.setItem("playerLVL", player0.lvl);
