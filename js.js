@@ -307,7 +307,7 @@ function exea(){
 function died(){
 	if (player0.live == "Dead"){
 		live();
-		player0.live == "Alive";
+		player0.live = "Alive";
 	}
 }
 
