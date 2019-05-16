@@ -78,7 +78,7 @@ function live(){
 		debugger;
 		var rngLvl = Math.floor(Math.random() * player0.lvl + 1);
 		var rngHP = Math.floor(Math.random() * 4);
-		rngHP +=  maxhp;
+		rngHP +=  Number(maxhp);
 		var rngH0 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
 		var rngH1 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
 		var rngED = Math.floor(Math.random() * player0.lvl ** 2 + 20);
