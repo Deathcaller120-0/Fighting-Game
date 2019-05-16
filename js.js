@@ -259,6 +259,7 @@ function exe(){
 		player1.live = "Dead";
 		document.getElementById('FS').style.display="initial";
 		document.getElementById('crit').innerHTML="";
+		player0.HP = maxhp;
 	}
 }
 //'AI'
