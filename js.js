@@ -287,21 +287,33 @@ function exea(){
 		dmgabsR = 0;
 		dmgabsL = 0;
 		if (player0.HP <= 0){
-			player0.HP = prefight;
+			player0.HP = maxhp;
 			player0.live = "Dead";
 			var expremove = 40;
 			do {
 				player0.exp--;
 				expremove--;
 			} while (expremove >= 1)
-			if (player0.exp <= 0){player0.exp = 0;}
+			if (player0.exp <= 0){
+				player0.exp = 0;
+			}
 			stats();
+			setTimeout(died, 5000);
 		}
 	}
 }
 
+//On Death
+function died(){
+	if (player0.live == "Dead"){
+		live();
+		player0.live == "Alive";
+		
+	}
+}
+
 //Leveling up
-var maxhp = 10;
+var maxhp = player0.HP;
 function lvlup(){
 	if (Number(player0.lvl) == 1 && player0.exp >= 100){
 		player0.lvl = 2;
@@ -353,7 +365,7 @@ function lvlup(){
 	}
 	if (player0.lvl == 5 && player0.exp >= 180){
 		player0.lvl++;
-		var expremove = 160;
+		var expremove = 180;
 		do{
 			player0.exp--;
 			expremove--;
@@ -365,13 +377,55 @@ function lvlup(){
 	}
 	if (player0.lvl == 6 && player0.exp >= 200){
 		player0.lvl++;
-		var expremove = 160;
+		var expremove = 200;
 		do{
 			player0.exp--;
 			expremove--;
 		} while (expremove >= 1)
 		player0.HP++;
 		player0.HP++;
+		maxhp++;
+		maxhp++;
+	}
+	if (player0.lvl == 7 && player0.exp >= 220){
+		player0.lvl++;
+		var expremove = 220;
+		do{
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		maxhp++;
+		maxhp++;
+		maxhp++;
+	}
+	if (player0.lvl == 8 && player0.exp >= 240){
+		player0.lvl++;
+		var expremove = 240;
+		do{
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		maxhp++;
+		maxhp++;
+		maxhp++;
+	}
+	if (player0.lvl == 9 && player0.exp >= 260){
+		player0.lvl++;
+		var expremove = 220;
+		do{
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		maxhp++;
 		maxhp++;
 		maxhp++;
 	}
