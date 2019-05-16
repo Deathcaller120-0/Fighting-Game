@@ -284,6 +284,7 @@ function exea(){
 				player0.exp--;
 				expremove--;
 			} while (expremove >= 1)
+			if (player0.exp <= 0){player0.exp = 0;}
 			stats();
 		}
 	}
