@@ -257,13 +257,15 @@ function exe(){
 }
 //'AI'
 function exea(){
+	var isDead = false;
 	document.getElementById('FS').style.display="initial";
 	document.getElementById('crit').innerHTML="";
 	if(player1.HP <= 0){
 		player1.live = "Dead";
+		isDead = true;
+		
 	}
-	if(player1.live !== "Dead"){
-		debugger;
+	if(player1.live !== "Dead" || isDead !== true){
 		var HPRA = Number(player0.HP);
 		var SALA = Math.floor(Math.random() * 3);
 		var SARA = Math.floor(Math.random() * 3);
