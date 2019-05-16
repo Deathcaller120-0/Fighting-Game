@@ -93,6 +93,8 @@ function live(){
 		player1.hand0 = rngH0;
 		player1.hand1 = rngH1;
 		player1.live = "Alive";
+		document.getElementById('FS').style.display="initial";
+		document.getElementById('crit').innerHTML="";
 		AV();
 	} 
 }
@@ -263,8 +265,6 @@ function exe(){
 	} else {
 		setTimeout(live, 5000);
 		player1.live = "Dead";
-		document.getElementById('FS').style.display="initial";
-		document.getElementById('crit').innerHTML="";
 		player0.HP = maxhp;
 	}
 }
@@ -308,7 +308,6 @@ function died(){
 	if (player0.live == "Dead"){
 		live();
 		player0.live == "Alive";
-		
 	}
 }
 
