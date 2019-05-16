@@ -87,7 +87,6 @@ function live(){
 		player1.hand0 = rngH0;
 		player1.hand1 = rngH1;
 		player1.live = "Alive";
-		isDead = false;
 		AV();
 	} 
 }
@@ -253,19 +252,19 @@ function exe(){
 			player1.HP = HPR - rmem;
 		}
 	}
-	setTimeout(exea, 5000);
+	if (player1.HP >= 1){
+		setTimeout(exea, 5000);
+	} else {
+		setTimeout(live, 5000);
+		player1.live = "Dead";
+	}
 }
 //'AI'
-var isDead = false;
+
 function exea(){
 	document.getElementById('FS').style.display="initial";
 	document.getElementById('crit').innerHTML="";
-	if(player1.HP <= 0){
-		player1.live = "Dead";
-		isDead = true;
-		setTimeout(live, 500)
-	}
-	if(player1.live !== "Dead" || isDead == !true){
+	if(player1.live !== "Dead"){
 		var HPRA = Number(player0.HP);
 		var SALA = Math.floor(Math.random() * 3);
 		var SARA = Math.floor(Math.random() * 3);
