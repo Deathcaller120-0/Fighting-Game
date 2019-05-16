@@ -75,9 +75,8 @@ function livea(){
 }
 function live(){
 	if (player1.live !== "Alive"){
-		debugger;
 		var rngLvl = Math.floor(Math.random() * player0.lvl + 1);
-		var rngHP = Math.floor(Math.random() * 4);
+		var rngHP = Math.floor(Math.random() * 3);
 		rngHP +=  Number(maxhp);
 		var rngH0 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
 		var rngH1 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
@@ -269,8 +268,8 @@ function exe(){
 		player0.HP = maxhp;
 	}
 }
-//'AI'
 
+//'AI'
 function exea(){
 	document.getElementById('FS').style.display="initial";
 	document.getElementById('crit').innerHTML="";
