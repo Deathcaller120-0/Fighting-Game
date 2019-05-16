@@ -56,7 +56,6 @@ function stats(){
 		player0.exp = expgain + exp;
 		setTimeout(live, 5000);
 		lvlup();
-		live();
 	}
 	document.getElementById('player1HR').innerHTML=player1.hand1;
 	document.getElementById('player1HL').innerHTML=player1.hand0
@@ -264,7 +263,7 @@ function exea(){
 	if(player1.HP <= 0){
 		player1.live = "Dead";
 		isDead = true;
-		
+		setTimeout(live, 500)
 	}
 	if(player1.live !== "Dead" || isDead == !true){
 		var HPRA = Number(player0.HP);
