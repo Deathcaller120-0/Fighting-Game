@@ -29,6 +29,9 @@ function fix(){
 	if (player0.defam == null || player0.defam == undefined || player0.defam == NaN){
 		player0.defam = 0;
 	}
+	if (maxhp == null){
+		maxhp = 10;
+	}
 }
 function save(){
 	localStorage.setItem("playerHP", player0.HP);
