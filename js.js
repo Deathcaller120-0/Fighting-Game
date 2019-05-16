@@ -71,15 +71,16 @@ function stats(){
 var player1 = {HP:0, hand0:"", hand1:"", lvl:1, live:"Loading, Please Wait", expdrop:0};
 function livea(){
 	player1.live = "Left Fight";
+	setTimeout(live, 10000);
 }
 function live(){
 	if (player1.live !== "Alive"){
-		player1.live = "Loading, Please Wait";
+		debugger;
 		var rngLvl = Math.floor(Math.random() * player0.lvl + 1);
-		var rngHP = Math.floor(Math.random() * 2);
+		var rngHP = Math.floor(Math.random() * 4);
 		rngHP +=  maxhp;
-		var rngH0 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
-		var rngH1 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
+		var rngH0 = Math.floor(Math.random() * weaponlist.length) - player0.lvl;
+		var rngH1 = Math.floor(Math.random() * weaponlist.length) - player0.lvl;
 		var rngED = Math.floor(Math.random() * player0.lvl ** 2 + 20);
 		player1.expdrop = rngED;
 		player1.HP = rngHP;
