@@ -315,7 +315,7 @@ function died(){
 var maxhp = 12;
 var explvl = 100;
 function lvlup(){
-	if (Number(player0.lvl) = 1 && player0.exp >= explvl){
+	if (Number(player0.lvl) >= 1 && player0.exp >= explvl){
 		player0.lvl++;
 		var expremove = explvl;
 		do{
