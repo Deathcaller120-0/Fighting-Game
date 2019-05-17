@@ -15,11 +15,8 @@ function fix(){
 	if (player0.HP == undefined || player0.HP == 0){
 		player0.HP = 12;
 	}
-	if (player0.handRight == null || player0.handRight == NaN || player0.handRight == undefined){
-		player0.handRight = "Fist";
-	}
-	if (player0.handLeft == null || player0.handLeft == NaN || player0.handLeft == undefined){
-		player0.handLeft = "Fist";
+	if (player0.dmg == null || player0.dmg == NaN || player0.dmg == undefined){
+		player0.dmg = 5;
 	}
 	if (player0.lvl == null || player0.lvl == undefined || player0.lvl == NaN){
 		player0.lvl = 1;
