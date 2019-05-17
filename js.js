@@ -237,6 +237,12 @@ function exea(){
 		var HPRA = Number(player0.HP);
 		var SALA = Math.floor(Math.random() * 3);
 		var SARA = Math.floor(Math.random() * 3);
+		if (dmgabsL >= 3){
+			dmgabsL = 2;
+		}
+		if (dmgabsR >= 3){
+			dmgabsR = 2;
+		}
 		if (SALA >= 1){
 			player0.HP = HPRA - lmema + dmgabsL + dmgabsR;
 			HPRA = Number(player0.HP);
@@ -244,8 +250,6 @@ function exea(){
 		if (SARA >= 1){
 			player0.HP = HPRA - lmema + dmgabsL + dmgabsR;
 		}
-		dmgabsR = 0;
-		dmgabsL = 0;
 		if (player0.HP <= 0){
 			player0.HP = maxhp;
 			player0.live = "Dead";
