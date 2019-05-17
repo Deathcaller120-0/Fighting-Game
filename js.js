@@ -548,8 +548,8 @@ var weapons = {
 };
 //Reset
 function reset(){
-	player0.HP = 10;
-	maxhp = 10;
+	player0.HP = 12;
+	maxhp = 12;
 	player0.handLeft = "Fist";
 	player0.handRight = "Fist";
 	player0.exp = 0;
