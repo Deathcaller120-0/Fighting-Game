@@ -294,54 +294,67 @@ function lvlup(){
 		if (player0.lvl >= 5){
 			player0.HP++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 10){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 15){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 20){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 25){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 30){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 35){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 40){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 45){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 50){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 55){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 60){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		if (player0.lvl >= 65){
 			player0.lvl++;
 			maxhp++;
+			player0.dmg++;
 		}
 		maxhp++;
 		maxhp++;
