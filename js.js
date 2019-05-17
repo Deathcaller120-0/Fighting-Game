@@ -1,5 +1,5 @@
 //1st Player or User
-var player0 = {HP:10, handRight:"Fist", handLeft:"Fist", exp:0, lvl:1, defam:0, live:"Alive"};
+var player0 = {HP:12, handRight:"Fist", handLeft:"Fist", exp:0, lvl:1, defam:0, live:"Alive"};
 setInterval(stats, 1000);
 setInterval(save, 1000);
 setTimeout(function(){
@@ -30,7 +30,7 @@ function fix(){
 		player0.defam = 0;
 	}
 	if (maxhp == null){
-		maxhp = 10;
+		maxhp = player0.HP;
 	}
 }
 function save(){
@@ -70,7 +70,7 @@ function stats(){
 //'AI' or Enemy
 var player1 = {HP:0, hand0:"", hand1:"", lvl:1, live:"Loading, Please Wait", expdrop:0};
 function livea(){
-	player1.live = "Left Fight";
+	document.getElementById('player1AD').innerHTML = "Left Fight";
 	setTimeout(live, 10000);
 }
 function live(){
