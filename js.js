@@ -1,12 +1,11 @@
 //1st Player or User
-var player0 = {HP:12, handRight:"Fist", handLeft:"Fist", exp:0, lvl:1, defam:0, live:"Alive"};
+var player0 = {HP:12, dmg:5, exp:0, lvl:1, defam:0, live:"Alive"};
 setInterval(stats, 1000);
 setInterval(save, 1000);
 setTimeout(function(){
 	player0.HP = localStorage.getItem("playerHP");
 	maxhp = localStorage.getItem("maxHP");
-	player0.handRight = localStorage.getItem("playerHR");
-	player0.handLeft = localStorage.getItem("playerHL");
+	player0.dmg = localStorage.getItem("playerDMG");
 	player0.lvl = localStorage.getItem("playerLVL");
 	player0.deflvl = localStorage.getItem("playerDef");
 	fix();
@@ -36,7 +35,7 @@ function fix(){
 function save(){
 	localStorage.setItem("playerHP", player0.HP);
 	localStorage.setItem("maxHP", maxhp);
-	localStorage.setItem("playerHR", player0.handRight);
+	localStorage.setItem("playerDMG", player0.dmg);
 	localStorage.setItem("playerHL", player0.handLeft);
 	localStorage.setItem("playerLVL", player0.lvl);
 	localStorage.setItem("playerDef", player0.deflvl);
@@ -45,8 +44,7 @@ function stats(){
 	//Player0
 	document.getElementById('player0AD').innerHTML=player0.live;
 	document.getElementById('player0HP').innerHTML=player0.HP;
-	document.getElementById('player0HR').innerHTML=player0.handRight;
-	document.getElementById('player0HL').innerHTML=player0.handLeft;
+	document.getElementById('player0DMG').innerHTML=player0.dmg;
 	document.getElementById('player0EXP').innerHTML=player0.exp; 
 	document.getElementById('player0LVL').innerHTML=player0.lvl;
 	//'AI'
@@ -62,8 +60,6 @@ function stats(){
 		setTimeout(live, 5000);
 		lvlup();
 	}
-	document.getElementById('player1HR').innerHTML=player1.hand1;
-	document.getElementById('player1HL').innerHTML=player1.hand0
 	document.getElementById('player1HP').innerHTML=player1.HP;
 	document.getElementById('player1LVL').innerHTML=player1.lvl;
 }
@@ -78,8 +74,8 @@ function live(){
 		var rngLvl = Math.floor(Math.random() * player0.lvl + 1);
 		var rngHP = Math.floor(Math.random() * 3);
 		rngHP +=  Number(maxhp);
-		var rngH0 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
-		var rngH1 = Math.floor(Math.random() * weaponlist.length) - player0.HP;
+		var rngH0 = Math.floor(Math.random() * weaponlist.length) - player0.lvl;
+		var rngH1 = Math.floor(Math.random() * weaponlist.length) - player0.lvl;
 		var rngED = Math.floor(Math.random() * player0.lvl ** 2 + 20);
 		player1.expdrop = rngED;
 		player1.HP = rngHP;
@@ -100,35 +96,6 @@ function live(){
 }
 
 //Weapon Verification
-//Player
-var wvar = setInterval(WV, 2000);
-var lmem = 0;
-var rmem = 0;
-function WV(){
-	var done = 0;
-	var arr = 0;
-	var aint = setInterval(a ,50);
-	if (player0.handLeft == " "){
-		player0.handLeft = "Fist";
-	}
-	if (player0.handRight == " "){
-		player0.handRight = "Fist";
-	}
-	function a(){
-		if (player0.handLeft == weaponlist[arr]){
-			lmem = weapons[player0.handLeft];
-			done++;
-		}
-		if (player0.handRight == weaponlist[arr]){
-			rmem = weapons[player0.handRight];
-			done++;
-		}
-		if (done >= 2){
-			clearInterval(aint);
-		}
-		arr++;
-	}
-}
 //'AI'
 var lmema = 0;
 var rmema = 0;
@@ -245,19 +212,19 @@ function exe(){
 	var crit = Math.floor(Math.random() * 5);
 	if (SAL == true && dmgabsL !== 2 && SDL == !true){
 		if(crit == 4){
-			player1.HP = HPR - lmem - 10;
+			player1.HP = HPR - player0.dmg - 10;
 			document.getElementById('crit').innerHTML="Critical Hit!";
 		} else {
-			player1.HP = HPR - lmem;
+			player1.HP = HPR - player0.dmg;
 		}
 		HPR = player1.HP;
 	}
 	if (SAR == true && dmgabsR !== 2 && SDR == !true){
 		if(crit == 4){
-			player1.HP = HPR - rmem - 10;
+			player1.HP = HPR - player0.dmg - 10;
 			document.getElementById('crit').innerHTML="Critical Hit!";
 		} else {
-			player1.HP = HPR - rmem;
+			player1.HP = HPR - player0.dmg;
 		}
 	}
 	if (player1.HP >= 1){
@@ -329,6 +296,8 @@ function lvlup(){
 		} while (other >= 1)
 		player0.HP++;
 		player0.HP++;
+		player0.dmg++;
+		player0.dmg++;
 		if (player0.lvl >= 5){
 			player0.HP++;
 			maxhp++;
@@ -386,225 +355,12 @@ function lvlup(){
 	}
 	
 }
-function aaaa(){
-	if(player0.lvl == 2 && player0.exp >= 120){
-		player0.lvl++;
-		var expremove = 120;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-	}
-	if(player0.lvl == 3 && player0.exp >= 140){
-		player0.lvl++;
-		var expremove = 140;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		if (player0.lvl >= 5){
-			player0.HP++;
-			maxhp++;
-		}
-		if (player0.lvl >= 10){
-			player0.lvl++;
-			maxhp++;
-		}
-		if (player0.lvl >= 15){
-			player0.lvl++;
-			maxhp++;
-		}
-		if (player0.lvl >= 20){
-			player0.lvl++;
-			maxhp++;
-		}
-		maxhp++;
-		maxhp++;
-	}
-	if (player0.lvl == 4 && player0.exp >= 160){
-		player0.lvl++;
-		var expremove = 160;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-	}
-	if (player0.lvl == 5 && player0.exp >= 180){
-		player0.lvl++;
-		var expremove = 180;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-	}
-	if (player0.lvl == 6 && player0.exp >= 200){
-		player0.lvl++;
-		var expremove = 200;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-	}
-	if (player0.lvl == 7 && player0.exp >= 220){
-		player0.lvl++;
-		var expremove = 220;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-	}
-	if (player0.lvl == 8 && player0.exp >= 240){
-		player0.lvl++;
-		var expremove = 240;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-	}
-	if (player0.lvl == 9 && player0.exp >= 260){
-		player0.lvl++;
-		var expremove = 260;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-	}
-	if (player0.lvl == 10 && player0.exp >= 280){
-		player0.lvl++;
-		var expremove = 280;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-	}
-	if (player0.lvl == 11 && player0.exp >= 300){
-		player0.lvl++;
-		var expremove = 300;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-	}
-	if (player0.lvl == 12 && player0.exp >= 320){
-		player0.lvl++;
-		var expremove = 320;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-	}
-	if (player0.lvl == 13 && player0.exp >= 340){
-		player0.lvl++;
-		var expremove = 340;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-	}
-	if (player0.lvl == 14 && player0.exp >= 360){
-		player0.lvl++;
-		var expremove = 360;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		player0.HP++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-		maxhp++;
-	}
-	}
-//Weapons
-var weaponlist = [
-	"Fist",
-	"Stick",
-	"Spear",
-	"Shield",
-	"Sword"
-];
-var weapons = {
-	Fist:5,
-	Stick:8,
-	Spear:14,
-	Shield:1,
-	Sword:20
-};
+
 //Reset
 function reset(){
 	player0.HP = 12;
 	maxhp = 12;
-	player0.handLeft = "Fist";
-	player0.handRight = "Fist";
+	player0.dmg = 5;
 	player0.exp = 0;
 	player0.defam = 0;
 	player0.lvl = 1;
