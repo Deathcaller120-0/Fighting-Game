@@ -315,7 +315,7 @@ function died(){
 var maxhp = 12;
 var explvl = 100;
 function lvlup(){
-	if (Number(player0.lvl) >= 1 && player0.exp >= explvl){
+	if (Number(player0.lvl) = 1 && player0.exp >= explvl){
 		player0.lvl++;
 		var expremove = explvl;
 		do{
@@ -329,6 +329,22 @@ function lvlup(){
 		} while (other >= 1)
 		player0.HP++;
 		player0.HP++;
+		if (player0.lvl >= 5){
+			player0.HP++;
+			maxhp++;
+		}
+		if (player0.lvl >= 10){
+			player0.lvl++;
+			maxhp++;
+		}
+		if (player0.lvl >= 15){
+			player0.lvl++;
+			maxhp++;
+		}
+		if (player0.lvl >= 20){
+			player0.lvl++;
+			maxhp++;
+		}
 		maxhp++;
 		maxhp++;
 	}
