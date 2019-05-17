@@ -14,7 +14,7 @@ setTimeout(function(){
 setInterval(fix, 5000);
 function fix(){
 	if (player0.HP == undefined || player0.HP == 0){
-		player0.HP = 20;
+		player0.HP = 12;
 	}
 	if (player0.handRight == null || player0.handRight == NaN || player0.handRight == undefined){
 		player0.handRight = "Fist";
