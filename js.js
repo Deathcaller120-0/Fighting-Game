@@ -345,6 +345,42 @@ function lvlup(){
 			player0.lvl++;
 			maxhp++;
 		}
+		if (player0.lvl >= 25){
+			player0.lvl++;
+			maxhp++;
+		}
+		if (player0.lvl >= 30){
+			player0.lvl++;
+			maxhp++;
+		}
+		if (player0.lvl >= 35){
+			player0.lvl++;
+			maxhp++;
+		}
+		if (player0.lvl >= 40){
+			player0.lvl++;
+			maxhp++;
+		}
+		if (player0.lvl >= 45){
+			player0.lvl++;
+			maxhp++;
+		}
+		if (player0.lvl >= 50){
+			player0.lvl++;
+			maxhp++;
+		}
+		if (player0.lvl >= 55){
+			player0.lvl++;
+			maxhp++;
+		}
+		if (player0.lvl >= 60){
+			player0.lvl++;
+			maxhp++;
+		}
+		if (player0.lvl >= 65){
+			player0.lvl++;
+			maxhp++;
+		}
 		maxhp++;
 		maxhp++;
 	}
