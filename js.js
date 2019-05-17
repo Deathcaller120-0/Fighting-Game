@@ -312,7 +312,7 @@ function died(){
 }
 
 //Leveling up
-var maxhp = player0.HP;
+var maxhp = 12;
 var explvl = 100;
 function lvlup(){
 	if (Number(player0.lvl) == 1 && player0.exp >= explvl){
