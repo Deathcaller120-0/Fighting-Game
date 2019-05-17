@@ -102,35 +102,28 @@ var rmema = 0;
 function AV(){
 	if (player1.hand0 == 0){
 		lmema = 5;
-		document.getElementById('player1HR').innerHTML=player1.hand0;
+		
 	} else if (player1.hand0 == 1){
 		lmema = 8;
-		document.getElementById('player1HR').innerHTML=player1.hand0;
+		
 	} else if (player1.hand0 == 2){
 		lmema = 14;
-		document.getElementById('player1HR').innerHTML=player1.hand0;
+		
 	} else if (player1.hand0 == 3){
 		lmema = 1;
-		document.getElementById('player1HR').innerHTML=player1.hand0;
 	} else if ( player1.hand0 == 4){
 		lmema = 20;
-		document.getElementById('player1HR').innerHTML=player1.hand0;
 	}
 	if (player1.hand1 == 0){
 		rmema = 5;
-		document.getElementById('player1HR').innerHTML=player1.hand0;
 	} else if (player1.hand1 == 1){
 		rmema = 8;
-		document.getElementById('player1HR').innerHTML=player1.hand0;
 	} else if (player1.hand1 == 2){
 		rmema = 14;
-		document.getElementById('player1HR').innerHTML=player1.hand0;
 	} else if (player1.hand1 == 3){
 		rmema = 1;
-		document.getElementById('player1HR').innerHTML=player1.hand0;
 	} else if ( player1.hand1 == 4){
 		rmema = 20;
-		document.getElementById('player1HR').innerHTML=player1.hand0;
 	}
 }
 
