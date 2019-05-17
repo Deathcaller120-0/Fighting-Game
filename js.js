@@ -315,7 +315,7 @@ function died(){
 var maxhp = 12;
 var explvl = 100;
 function lvlup(){
-	if (Number(player0.lvl) == 1 && player0.exp >= explvl){
+	if (Number(player0.lvl) >= 1 && player0.exp >= explvl){
 		player0.lvl++;
 		var expremove = explvl;
 		do{
@@ -332,6 +332,9 @@ function lvlup(){
 		maxhp++;
 		maxhp++;
 	}
+	
+}
+function aaaa(){
 	if(player0.lvl == 2 && player0.exp >= 120){
 		player0.lvl++;
 		var expremove = 120;
@@ -372,7 +375,6 @@ function lvlup(){
 		maxhp++;
 		maxhp++;
 	}
-	function aaaa(){
 	if (player0.lvl == 4 && player0.exp >= 160){
 		player0.lvl++;
 		var expremove = 160;
@@ -530,8 +532,6 @@ function lvlup(){
 		maxhp++;
 	}
 	}
-}
-
 //Weapons
 var weaponlist = [
 	"Fist",
