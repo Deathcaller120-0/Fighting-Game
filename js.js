@@ -416,7 +416,7 @@ function lvlup(){
 	}
 	if (player0.lvl == 9 && player0.exp >= 260){
 		player0.lvl++;
-		var expremove = 220;
+		var expremove = 260;
 		do{
 			player0.exp--;
 			expremove--;
@@ -424,6 +424,84 @@ function lvlup(){
 		player0.HP++;
 		player0.HP++;
 		player0.HP++;
+		maxhp++;
+		maxhp++;
+		maxhp++;
+	}
+	if (player0.lvl == 10 && player0.exp >= 280){
+		player0.lvl++;
+		var expremove = 280;
+		do{
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		maxhp++;
+		maxhp++;
+		maxhp++;
+	}
+	if (player0.lvl == 11 && player0.exp >= 300){
+		player0.lvl++;
+		var expremove = 300;
+		do{
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		maxhp++;
+		maxhp++;
+		maxhp++;
+		maxhp++;
+	}
+	if (player0.lvl == 12 && player0.exp >= 320){
+		player0.lvl++;
+		var expremove = 320;
+		do{
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		maxhp++;
+		maxhp++;
+		maxhp++;
+		maxhp++;
+	}
+	if (player0.lvl == 13 && player0.exp >= 340){
+		player0.lvl++;
+		var expremove = 340;
+		do{
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		maxhp++;
+		maxhp++;
+		maxhp++;
+		maxhp++;
+	}
+	if (player0.lvl == 14 && player0.exp >= 360){
+		player0.lvl++;
+		var expremove = 360;
+		do{
+			player0.exp--;
+			expremove--;
+		} while (expremove >= 1)
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		player0.HP++;
+		maxhp++;
 		maxhp++;
 		maxhp++;
 		maxhp++;
