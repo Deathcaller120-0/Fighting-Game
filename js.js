@@ -372,7 +372,7 @@ function lvlup(){
 		maxhp++;
 		maxhp++;
 	}
-	/*
+	function aaaa(){
 	if (player0.lvl == 4 && player0.exp >= 160){
 		player0.lvl++;
 		var expremove = 160;
@@ -529,7 +529,7 @@ function lvlup(){
 		maxhp++;
 		maxhp++;
 	}
-	*/
+	}
 }
 
 //Weapons
