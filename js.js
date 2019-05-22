@@ -68,9 +68,9 @@ function livea(){
 }
 function live(){
 	if (player1.live !== "Alive"){
-		var rngLvl = Math.floor(Math.random() * player0.lvl + 1);
-		var rngHP = Math.floor(Math.random() * 3);
-		rngHP +=  Number(maxhp);
+		var rngLvl = Math.floor(Math.random() * player0.lvl) + 1;
+		var rngHP = Math.floor(Math.random() * 6);
+		rngHP +=  Number(player0.dmg) * 2;
 		var rngH0 = Math.floor(Math.random() * player0.lvl);
 		var rngH1 = Math.floor(Math.random() * player0.lvl);
 		var rngED = Math.floor(Math.random() * player0.lvl ** 2 + 20);
