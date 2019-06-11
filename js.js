@@ -10,6 +10,7 @@ setTimeout(function(){
 	player0.lvl = localStorage.getItem("playerLVL");
 	player0.deflvl = localStorage.getItem("playerDef");
 	player0.NAME = localStorage.getItem("playerNAME");
+	AL = localStorage.getItem('AL');
 	fix();
 }, 500)
 setInterval(fix, 5000);
@@ -23,7 +24,9 @@ function fix(){
 	if (player0.lvl == null || player0.lvl == undefined || player0.lvl == NaN){
 		player0.lvl = 1;
 	}
-	
+	if (player0.exp == NaN){
+		player0.exp = 0;
+	}
 	if (player0.defam == null || player0.defam == undefined || player0.defam == NaN){
 		player0.defam = 0;
 	}
@@ -32,6 +35,9 @@ function fix(){
 	}
 	if (player0.NAME == undefined){
 		player0.NAME = "PLAYER";
+	}
+	if (AL == undefined){
+		AL = 0;
 	}
 }
 function save(){
@@ -42,6 +48,7 @@ function save(){
 	localStorage.setItem("playerLVL", player0.lvl);
 	localStorage.setItem("playerDef", player0.deflvl);
 	localStorage.setItem("playerNAME", player0.NAME);
+	localStorage.setItem("AL", AL);
 }
 function stats(){
 	//Player0
@@ -51,6 +58,12 @@ function stats(){
 	document.getElementById('player0EXP').innerHTML=player0.exp; 
 	document.getElementById('player0LVL').innerHTML=player0.lvl;
 	document.getElementById('player0NAME').innerHTML=player0.NAME;
+	if (player0.lvl >= AL + 2){
+		player0 = {HP:12, dmg:5, exp:0, lvl:1, defam:0, live:"Alive", NAME:"Don't Cheat you Idiot"};
+		setTimeout(function(){
+			player0.NAME = localStorage.getItem("playerNAME");;
+		}, 5000);
+	}
 	//'AI'
 	document.getElementById('player1AD').innerHTML=player1.live;
 	if (player1.HP <= 0 && player1.live !== "Loading, Please Wait."){
@@ -81,7 +94,7 @@ function live(){
 		var rngH0 = Math.floor(Math.random() * player0.lvl);
 		var rngH1 = Math.floor(Math.random() * player0.lvl);
 		var rngED = Math.floor(Math.random() * player0.lvl ** 2 + 20);
-		rngED += Math.floor(Math.random * 40) + 20;
+		rngED += Math.floor(Math.random() * 40) + 20;
 		player1.expdrop = rngED;
 		player1.HP = rngHP;
 		player1.lvl = rngLvl;
@@ -282,10 +295,12 @@ function died(){
 
 //Leveling up
 var maxhp = 12;
+var AL = 0;
 var explvl = 100;
 function lvlup(){
 	if (Number(player0.lvl) >= 1 && player0.exp >= explvl){
 		player0.lvl++;
+		AL++;
 		var expremove = explvl;
 		do{
 			player0.exp--;
@@ -381,4 +396,14 @@ function reset(){
 	player0.lvl = 1;
 	live();
 	save();
+}
+
+//Nameing
+function setName(){
+	var LN = document.getElementById('NAMEIN').value;
+	player0.NAME = LN;
+	if (LN == ' ' || typeof(LN) == 0){
+		window.alert('INVALID VALUE');
+		player0.NAME = "PLAYER";
+	}
 }
