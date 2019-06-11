@@ -1,3 +1,4 @@
+console.log("Why are you here? Are you looking for debug output? Or are you Cheating?");
 //1st Player or User
 var player0 = {HP:12, dmg:5, exp:0, lvl:1, defam:0, live:"Alive", NAME:"PLAYER"};
 setInterval(stats, 1000);
