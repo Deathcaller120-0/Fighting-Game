@@ -12,7 +12,7 @@ body {
 }
 .grid-container {
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: auto auto auto;
 	background-color: #000;
 	padding: 10px;
 }
