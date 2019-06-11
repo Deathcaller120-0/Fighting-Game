@@ -1,5 +1,5 @@
 //1st Player or User
-var player0 = {HP:12, dmg:5, exp:0, lvl:1, defam:0, live:"Alive"};
+var player0 = {HP:12, dmg:5, exp:0, lvl:1, defam:0, live:"Alive", NAME:"PLAYER"};
 setInterval(stats, 1000);
 setInterval(save, 1000);
 setTimeout(function(){
@@ -8,6 +8,7 @@ setTimeout(function(){
 	player0.dmg = localStorage.getItem("playerDMG");
 	player0.lvl = localStorage.getItem("playerLVL");
 	player0.deflvl = localStorage.getItem("playerDef");
+	player0.NAME = localStorage.getItem("playerNAME");
 	fix();
 }, 500)
 setInterval(fix, 5000);
@@ -28,6 +29,9 @@ function fix(){
 	if (maxhp == null){
 		maxhp = player0.HP;
 	}
+	if (player0.NAME == undefined){
+		player0.NAME = "PLAYER";
+	}
 }
 function save(){
 	localStorage.setItem("playerHP", player0.HP);
@@ -36,6 +40,7 @@ function save(){
 	localStorage.setItem("playerHL", player0.handLeft);
 	localStorage.setItem("playerLVL", player0.lvl);
 	localStorage.setItem("playerDef", player0.deflvl);
+	localStorage.setItem("playerNAME", player0.NAME);
 }
 function stats(){
 	//Player0
@@ -44,6 +49,7 @@ function stats(){
 	document.getElementById('player0DMG').innerHTML=player0.dmg;
 	document.getElementById('player0EXP').innerHTML=player0.exp; 
 	document.getElementById('player0LVL').innerHTML=player0.lvl;
+	document.getElementById('player0NAME').innerHTML=player0.NAME;
 	//'AI'
 	document.getElementById('player1AD').innerHTML=player1.live;
 	if (player1.HP <= 0 && player1.live !== "Loading, Please Wait."){
@@ -74,6 +80,7 @@ function live(){
 		var rngH0 = Math.floor(Math.random() * player0.lvl);
 		var rngH1 = Math.floor(Math.random() * player0.lvl);
 		var rngED = Math.floor(Math.random() * player0.lvl ** 2 + 20);
+		rngED += Math.floor(Math.random * 40) + 20;
 		player1.expdrop = rngED;
 		player1.HP = rngHP;
 		player1.lvl = rngLvl;
