@@ -1,4 +1,4 @@
-console.log("Why are you here? Are you looking for debug output? Or are you Cheating?");
+console.log("Why are you here? Are you looking for some debug outputs? Or are you Cheating?");
 //1st Player or User
 var player0 = {HP:12, dmg:5, exp:0, lvl:1, defam:0, live:"Alive", NAME:"PLAYER"};
 setInterval(stats, 1000);
@@ -8,11 +8,10 @@ setTimeout(function(){
 	maxhp = localStorage.getItem("maxHP");
 	player0.dmg = localStorage.getItem("playerDMG");
 	player0.lvl = localStorage.getItem("playerLVL");
-	player0.deflvl = localStorage.getItem("playerDef");
 	player0.NAME = localStorage.getItem("playerNAME");
-	AL = localStorage.getItem('AL');
+	explvl = localStorage.getItem("EXPLVL");
 	fix();
-}, 500)
+}, 500);
 setInterval(fix, 5000);
 function fix(){
 	if (player0.HP == undefined || player0.HP == 0){
@@ -36,19 +35,16 @@ function fix(){
 	if (player0.NAME == undefined){
 		player0.NAME = "PLAYER";
 	}
-	if (AL == undefined){
-		AL = 0;
+	if (explvl == undefined){
+		explvl = 100;
 	}
 }
 function save(){
 	localStorage.setItem("playerHP", player0.HP);
 	localStorage.setItem("maxHP", maxhp);
 	localStorage.setItem("playerDMG", player0.dmg);
-	localStorage.setItem("playerHL", player0.handLeft);
 	localStorage.setItem("playerLVL", player0.lvl);
-	localStorage.setItem("playerDef", player0.deflvl);
 	localStorage.setItem("playerNAME", player0.NAME);
-	localStorage.setItem("AL", AL);
 }
 function stats(){
 	//Player0
@@ -58,12 +54,6 @@ function stats(){
 	document.getElementById('player0EXP').innerHTML=player0.exp; 
 	document.getElementById('player0LVL').innerHTML=player0.lvl;
 	document.getElementById('player0NAME').innerHTML=player0.NAME;
-	if (player0.lvl >= AL + 2){
-		player0 = {HP:12, dmg:5, exp:0, lvl:1, defam:0, live:"Alive", NAME:"Don't Cheat you Idiot"};
-		setTimeout(function(){
-			player0.NAME = localStorage.getItem("playerNAME");;
-		}, 5000);
-	}
 	//'AI'
 	document.getElementById('player1AD').innerHTML=player1.live;
 	if (player1.HP <= 0 && player1.live !== "Loading, Please Wait."){
@@ -81,7 +71,7 @@ function stats(){
 	document.getElementById('player1LVL').innerHTML=player1.lvl;
 }
 //'AI' or Enemy
-var player1 = {HP:0, hand0:"", hand1:"", lvl:1, live:"Loading, Please Wait", expdrop:0};
+var player1 = {HP:0, DMG:0, lvl:1, live:"Loading, Please Wait", expdrop:0};
 function livea(){
 	document.getElementById('player1AD').innerHTML = "Left Fight";
 	setTimeout(live, 10000);
@@ -91,58 +81,20 @@ function live(){
 		var rngLvl = Math.floor(Math.random() * player0.lvl) + 1;
 		var rngHP = Math.floor(Math.random() * 6);
 		rngHP +=  Number(player0.dmg) * 2;
-		var rngH0 = Math.floor(Math.random() * player0.lvl);
-		var rngH1 = Math.floor(Math.random() * player0.lvl);
+		var rngDMG = Math.floor(Math.random() * player0.DMG + 2);
 		var rngED = Math.floor(Math.random() * player0.lvl ** 2 + 20);
-		rngED += Math.floor(Math.random() * 40) + 20;
+		rngED += Math.floor(Math.random() * player1.lvl);
 		player1.expdrop = rngED;
 		player1.HP = rngHP;
 		player1.lvl = rngLvl;
-		if (rngH0 <= -1){
-			rngH0 = 0;
+		if (rngDMG <= -1){
+			rngDMG = 0;
 		}
-		if (rngH1 <= -1){
-			rngH1 = 0;
-		}
-		player1.hand0 = rngH0;
-		player1.hand1 = rngH1;
+		player1.DMG = rngDMG;
 		player1.live = "Alive";
 		document.getElementById('FS').style.display="initial";
 		document.getElementById('crit').innerHTML="";
-		AV();
 	} 
-}
-
-//Weapon Verification
-//'AI'
-var lmema = 0;
-var rmema = 0;
-function AV(){
-	if (player1.hand0 == 0){
-		lmema = 5;
-		
-	} else if (player1.hand0 == 1){
-		lmema = 8;
-		
-	} else if (player1.hand0 == 2){
-		lmema = 14;
-		
-	} else if (player1.hand0 == 3){
-		lmema = 1;
-	} else if ( player1.hand0 == 4){
-		lmema = 20;
-	}
-	if (player1.hand1 == 0){
-		rmema = 5;
-	} else if (player1.hand1 == 1){
-		rmema = 8;
-	} else if (player1.hand1 == 2){
-		rmema = 14;
-	} else if (player1.hand1 == 3){
-		rmema = 1;
-	} else if ( player1.hand1 == 4){
-		rmema = 20;
-	}
 }
 
 //Attack with Weapon(s)
@@ -216,7 +168,6 @@ function defendR(){
 //Player
 var dmgabsR = 0;
 var dmgabsL = 0;
-var prefight = player0.HP;
 function exe(){
 	document.getElementById('FS').style.display="none";
 	var HPR = Number(player1.HP);
@@ -262,20 +213,16 @@ function exea(){
 			dmgabsR = 2;
 		}
 		if (SALA >= 1){
-			player0.HP = HPRA - lmema + dmgabsL + dmgabsR;
+			player0.HP = HPRA - player1.DMG + dmgabsL + dmgabsR;
 			HPRA = Number(player0.HP);
 		}
 		if (SARA >= 1){
-			player0.HP = HPRA - lmema + dmgabsL + dmgabsR;
+			player0.HP = HPRA - player1.DMG + dmgabsL + dmgabsR;
 		}
 		if (player0.HP <= 0){
 			player0.HP = maxhp;
 			player0.live = "Dead";
-			var expremove = 40;
-			do {
-				player0.exp--;
-				expremove--;
-			} while (expremove >= 1)
+			player0.exp -= 40;
 			if (player0.exp <= 0){
 				player0.exp = 0;
 			}
@@ -295,26 +242,14 @@ function died(){
 
 //Leveling up
 var maxhp = 12;
-var AL = 0;
 var explvl = 100;
 function lvlup(){
 	if (Number(player0.lvl) >= 1 && player0.exp >= explvl){
 		player0.lvl++;
-		AL++;
-		var expremove = explvl;
-		do{
-			player0.exp--;
-			expremove--;
-		} while (expremove >= 1)
-		var other = 20;
-		do {
-			explvl++;
-			other--;
-		} while (other >= 1)
-		player0.HP++;
-		player0.HP++;
-		player0.dmg++;
-		player0.dmg++;
+		player0.exp -= explvl;
+		explvl += 20;
+		player0.HP += 2;
+		player0.dmg += 2;
 		if (player0.lvl >= 5){
 			player0.HP++;
 			maxhp++;
@@ -380,8 +315,8 @@ function lvlup(){
 			maxhp++;
 			player0.dmg++;
 		}
-		maxhp++;
-		maxhp++;
+		maxhp += 2;
+		localStorage.setItem('EXPLVL', explvl);
 	}
 	
 }
